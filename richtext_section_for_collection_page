@@ -1,0 +1,74 @@
+//This is a simple richtext section for the collection page, which you can add richtext block based on the differents collection section handle.
+//Also add this code into your collection.liquid
+/---------------------------------------------------------------------/
+    <!--     Add text box       -->
+    <div class="collection-richtext">
+      {% section "dynamic-text-section" %}
+    </div> 
+ /--------------------------------------------------------------------/
+ 
+{% assign collection_handle = collection.handle %}
+
+<div class="text-container">
+  {% if section.blocks.size > 0 %} 
+    {% for richblock in section.blocks %}
+      <li class="text-list">
+        <div>
+          {%- if richblock.settings.link != blank -%}
+          	{%- if richblock.settings.link == collection_handle -%}
+          		<div class="richtext_block">
+                    {%- if richblock.settings.title != blank -%}
+                      	<h2>{{ richblock.settings.title | escape }}</h2>
+                    {%- endif -%}
+                    {%- if richblock.settings.text  != blank -%}
+                          {{ richblock.settings.text  }}
+                    {%- endif -%}     
+            	</div>
+          	{%- endif -%}         	         	
+          {% endif%}         
+        </div>  
+      </li>
+    {% endfor %}
+  {% endif %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Rich text",
+	"class": "index-section",
+	"max_blocks": 5,
+    "settings": [
+
+    ],
+	"blocks": [
+      {
+		"type": "text",
+		"name": "content",
+		"settings":[
+			{
+				"type": "text",
+                "id": "title",
+                "label": "Heading",
+                "default": "Talk about your brand"
+              },
+              {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text",
+                "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+              },
+			  {
+				"type": "collection",
+				"id": "link",
+				"label": "Select the collection"
+			  }
+			]
+		}
+	],
+    "presets": [{
+        "name": "Rich text",
+        "category": "Text"
+    }]
+  }
+{% endschema %}
