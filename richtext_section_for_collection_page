@@ -1,4 +1,4 @@
-//This is a simple richtext section for the collection page, which you can add richtext block based on the differents collection section handle.
+//This is a simple richtext section for the collection page, which you can add richtext block based on the differents collection handle.
 //Also add this code into your collection.liquid
 /---------------------------------------------------------------------/
     <!--     Add text box       -->
