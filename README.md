@@ -1,2 +1,2 @@
 # Shopify-Sections
-Share some usable shopify section
+I would like to share some usefull shopify function for everyone.
