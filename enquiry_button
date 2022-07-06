@@ -1,4 +1,5 @@
-This section are used to add enquiry button on product page.
+//This section are used to add enquiry button on product page.
+//Add this code between product title and description block
 
 <!--      Add Enquiry Button        -->                                      
 {% assign enquiry_collection = "enquire-prodcut" %}
