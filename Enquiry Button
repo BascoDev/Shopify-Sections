@@ -1,0 +1,60 @@
+This section are used to add enquiry button on product page.
+
+<!--      Add Enquiry Button        -->                                      
+{% assign enquiry_collection = "enquire-prodcut" %}
+{% assign enquiry_check = false %}
+
+
+{% for enquiry_products in  collections[enquiry_collection].products %}
+    {% if product.title == enquiry_products.title %}
+        {% assign enquiry_check = true %}
+    {% endif %}
+{% endfor %}
+         
+
+{% if enquiry_check %}
+  <div class="product_single_enquiry">
+    <button type="button" name="enquiry" id="enquiryButton" onclick="enquiry_click()">
+      <span class="btn__text">
+        {% if current_variant.available %}
+        Get Enquiry
+        {% else %}
+        {{ 'products.product.sold_out' | t }}
+        {% endif %}
+      </span>
+    </button>
+  </div>  
+{% else %}
+  <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
+    <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="btn btn--add-to-cart{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+      <span class="btn__text">
+        {% if current_variant.available %}
+          {{ 'products.product.add_to_cart' | t }}
+        {% else %}
+          {{ 'products.product.sold_out' | t }}
+        {% endif %}
+      </span>
+    </button>
+    {% if section.settings.enable_payment_button %}
+      {{ form | payment_button }}
+    {% endif %}
+  </div>
+{% endif %}
+      
+<script>
+  function enquiry_click(){
+      window.location.href = 'https://themonique.co.nz/pages/contact-us';
+  }
+</script>
+
+<style>
+  .product_single_enquiry{
+       border: 1px solid #000000;
+    margin: 20px 0 20px 0;
+  }
+  
+  #enquiryButton{
+       margin: 10px 0 10px 0; 
+  }
+</style>
+<!--      End Edit        -->
