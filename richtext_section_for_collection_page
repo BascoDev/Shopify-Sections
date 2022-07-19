@@ -1,12 +1,3 @@
-//This is a simple richtext section for the collection page, which you can add richtext block based on the differents collection handle.
-//Also add this code into your collection.liquid
-/---------------------------------------------------------------------/
-    <!--     Add text box       -->
-    <div class="collection-richtext">
-      {% section "dynamic-text-section" %}
-    </div> 
- /--------------------------------------------------------------------/
- 
 {% assign collection_handle = collection.handle %}
 
 <div class="text-container">
@@ -37,34 +28,40 @@
   {
     "name": "Rich text",
 	"class": "index-section",
-	"max_blocks": 5,
+	"max_blocks": 100,
     "settings": [
 
     ],
 	"blocks": [
       {
 		"type": "text",
-		"name": "content",
+		"name": "Rich Text Block",
 		"settings":[
-			{
+              {
 				"type": "text",
-				"id": "title",
-				"label": "Heading",
-				"default": "Talk about your brand"
-			},
-			{
-				"type": "richtext",
-				"id": "text",
-				"label": "Text",
-				"default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
-		      	},
-		      	{
+                "id": "heading",
+                "label": "Title",
+                "default": "Talk about your brand"
+              },
+              {
+				"type": "text",
+                "id": "title",
+                "label": "Text Header",
+                "default": "Collection Title"                
+              },
+              {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text",
+                "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+              },
+			  {
 				"type": "collection",
 				"id": "link",
 				"label": "Select the collection"
-			}
+			  }
 			]
-	}
+		}
 	],
     "presets": [{
         "name": "Rich text",
