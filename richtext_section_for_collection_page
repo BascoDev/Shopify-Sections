@@ -3,26 +3,33 @@
 <div class="text-container">
   {% if section.blocks.size > 0 %} 
     {% for richblock in section.blocks %}
-      <li class="text-list">
-        <div>
-          {%- if richblock.settings.link != blank -%}
-          	{%- if richblock.settings.link == collection_handle -%}
-          		<div class="richtext_block">
-                    {%- if richblock.settings.title != blank -%}
-                      	<h2>{{ richblock.settings.title | escape }}</h2>
-                    {%- endif -%}
-                    {%- if richblock.settings.text  != blank -%}
-                          {{ richblock.settings.text  }}
-                    {%- endif -%}     
-            	</div>
-          	{%- endif -%}         	         	
-          {% endif%}         
-        </div>  
-      </li>
+      <ul>
+        <li class="text-list">
+          <div>
+            {%- if richblock.settings.link != blank -%}
+            	{%- if richblock.settings.link == collection_handle -%}
+            		<div class="richtext_block">
+                      {%- if richblock.settings.title != blank -%}
+                        	<h2>{{ richblock.settings.title | escape }}</h2>
+                      {%- endif -%}
+                      {%- if richblock.settings.text  != blank -%}
+                            {{ richblock.settings.text  }}
+                      {%- endif -%}     
+              	</div>
+            	{%- endif -%}         	         	
+            {% endif%}         
+          </div>  
+        </li>
+      </ul>
     {% endfor %}
   {% endif %}
-
 </div>
+
+{% style %}
+  .text-container ul{
+    list-style-type: none;
+  }
+{% endstyle %}
 
 {% schema %}
   {
