@@ -1,0 +1,19 @@
+/**
+ *Add to cart button on the product grid (collection page)
+*/
+
+<form id="collection_add_to_cart" method="post" action="/cart/add">
+  <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+  <input min="1" type="number" id="quantity" name="quantity" value="1"/>
+  <input value="Add to cart" type="submit" class="btn"/>
+</form>
+
+#collection_add_to_cart{
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
+  right: 0;
+  margin-bottom: 0px;
+}
+
+//Add this code between product under product image wrapper and set the form position as absolute
