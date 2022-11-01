@@ -1,0 +1,13 @@
+//Set the product image ratio to 1:1
+
+//First: using aspect-ratio property to set the image container
+.image_container{
+    aspect-ratio: 1/1;
+}
+
+//Second: set the product background iamge size and padding property
+.product_background_image{
+    //this makes the image widht to follow the height adjustment
+    background-size: auto 100%;
+    padding-top: 100%;
+}
